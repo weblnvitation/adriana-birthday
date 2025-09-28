@@ -1,0 +1,544 @@
+/* ===== RESET & BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.music-toggle {
+  width: 40px;
+  height: 40px;
+  margin: 0px 0px;
+  background-image: url("https://static.tildacdn.one/tild3639-3539-4934-b234-386638623664/photo.svg");
+  background-size: cover;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+}
+
+.music-toggle.playing {
+  background-image: url("https://static.tildacdn.one/tild6465-6630-4538-a430-616536303864/photo_1.svg");
+}
+
+/* ===== FONT DEFINITIONS ===== */
+@font-face {
+  font-family: "SHK Dzeragir";
+  src: url("./font/SHK_Dzeragir.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kamavor";
+  src: url("./font/Kamavor-NA.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== ANIMATION KEYFRAMES ===== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== DESKTOP STYLES ===== */
+body {
+  background-color: #f5f3f3;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.left-section,
+.right-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.left-info,
+.right-info {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+
+.right-info {
+  flex-direction: column;
+}
+
+.main-image,
+.birthday-text {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.birthday-text {
+  position: relative;
+  top: -120px;
+}
+
+.seven-image {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: auto;
+  max-width: 80%;
+  opacity: 0;
+  transform: scale(0.5) rotate(-10deg);
+  animation: popIn 1s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+  opacity: 0;
+  animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem;
+}
+
+/* Text Styles */
+.invitation-text,
+.venue,
+.address,
+.timer-title {
+  font-family: "SHK Dzeragir", serif;
+  color: #232323;
+  text-align: center;
+  max-width: 90%;
+}
+
+.date,
+.time {
+  font-family: "Kamavor", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin: 0;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.invitation-text {
+  font-size: 1.8rem;
+  margin: 0.3em 0;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.venue {
+  font-size: 1.3rem;
+  margin: 0.2rem 0;
+}
+
+.address {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.date-time {
+  color: #e9cca3;
+  margin: 0.1em 0;
+}
+
+.location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+  padding: 0.5rem 1rem;
+
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.location-icon {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  flex-shrink: 0;
+}
+
+/* Countdown Timer */
+.countdown-timer {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: slideUpFade 0.8s ease-out forwards;
+  animation-delay: 1.6s;
+  opacity: 0;
+}
+
+.timer-title {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 0.8rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  font-weight: 600;
+}
+
+.timer-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.timer-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e9cca3;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.timer-label {
+  font-size: 0.8rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.timer-separator {
+  font-size: 1.5rem;
+  color: #e9cca3;
+  font-weight: bold;
+  margin: 0 0.2rem;
+  line-height: 1.8;
+}
+
+/* Staggered Animations */
+.event-details h2 {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: slideUpFade 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.date {
+  animation-delay: 0.8s;
+}
+.time {
+  animation-delay: 1s;
+}
+.venue {
+  animation-delay: 1.2s;
+}
+.location {
+  animation-delay: 1.4s;
+}
+
+/* ===== MOBILE STYLES ===== */
+@media (max-width: 768px) {
+  body {
+    height: auto;
+    padding: 10px 0;
+    overflow: auto;
+  }
+
+  .main-content {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+    flex: none;
+    height: auto;
+    min-height: 50vh;
+    padding: 10px;
+    overflow: visible;
+  }
+
+  .right-section {
+    min-height: 70vh;
+  }
+
+  .birthday-text {
+    top: -30px;
+    max-height: 200px;
+  }
+
+  .text-overlay {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: -50px;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    opacity: 1;
+    animation: none;
+  }
+
+  /* Remove animations for mobile performance */
+  .event-details h2,
+  .countdown-timer {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Keep seven-image animation */
+  .seven-image {
+    width: 130px;
+    /* bottom: 25px;
+    right: 25px; */
+    animation: popIn 1s ease-out forwards;
+    animation-delay: 1s;
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+
+  /* Reorder elements for mobile */
+  .countdown-timer {
+    order: 1;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    opacity: 1;
+    animation: none;
+  }
+
+  .invitation-text {
+    order: 2;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    margin: 0.2em 0;
+  }
+
+  .event-details {
+    order: 3;
+    gap: 0.7rem;
+  }
+
+  .date,
+  .time,
+  .venue,
+  .address {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .venue {
+    font-size: 1.3rem;
+    margin: 0.2rem 0;
+  }
+
+  .location {
+    margin-top: 0.4rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .location-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .address {
+    font-size: 1.2rem;
+  }
+
+  /* Mobile Timer Adjustments */
+  .countdown-timer {
+    padding: 0.8rem;
+  }
+
+  .timer-title {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .timer-container {
+    gap: 0.5rem;
+  }
+
+  .timer-unit {
+    min-width: 50px;
+  }
+
+  .timer-value {
+    font-size: 1.5rem;
+  }
+
+  .timer-label {
+    font-size: 0.7rem;
+  }
+
+  .timer-separator {
+    font-size: 1.2rem;
+    margin: 0 0.1rem;
+  }
+}
+
+/* ===== SMALL MOBILE ADJUSTMENTS ===== */
+@media (max-width: 480px) {
+  .left-section {
+    min-height: 40vh;
+  }
+
+  .right-section {
+    min-height: 60vh;
+  }
+
+  .birthday-text {
+    margin-top: 30px;
+  }
+
+  /* .text-overlay {
+          margin-top: -30px;
+        } */
+
+  .invitation-text {
+    font-size: 1.2rem;
+  }
+
+  .timer-container {
+    gap: 0.3rem;
+  }
+
+  .timer-unit {
+    min-width: 45px;
+  }
+
+  .timer-value {
+    font-size: 1.3rem;
+  }
+
+  .timer-label {
+    font-size: 0.65rem;
+  }
+
+  .timer-separator {
+    font-size: 1rem;
+  }
+
+  .location-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ===== REDUCED MOTION SUPPORT ===== */
+@media (prefers-reduced-motion: reduce) {
+  .text-overlay,
+  .event-details h2,
+  .seven-image,
+  .countdown-timer {
+    animation: none;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  .event-details h2 {
+    transform: translateY(0);
+  }
+
+  .seven-image {
+    transform: scale(1) rotate(0deg);
+  }
+}

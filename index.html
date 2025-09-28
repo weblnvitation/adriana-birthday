@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adriana's 7th Birthday</title>
+
+    <!-- Meta Description -->
+    <meta
+      name="description"
+      content="Join us in celebrating Adriana's 7th birthday"
+    />
+
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="Adriana's 7th Birthday Celebration" />
+    <meta
+      property="og:description"
+      content="Join us in celebrating Adriana's 7th birthday"
+    />
+    <meta property="og:image" content="./public/image.png" />
+    <meta
+      property="og:url"
+      content="https://yourwebsite.com/adriana-birthday"
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Adriana's 7th Birthday Celebration" />
+    <meta
+      name="twitter:description"
+      content="Join us in celebrating Adriana's 7th birthday"
+    />
+    <meta name="twitter:image" content="./public/image.png" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="main-content">
+      <section class="left-section">
+        <div class="left-info">
+          <img src="./public/image.png" alt="Main Image" class="main-image" />
+          <img src="./public/seven.png" class="seven-image" />
+        </div>
+      </section>
+      <section class="right-section">
+        <div class="right-info">
+          <img
+            src="./public/birthday text.png"
+            class="birthday-text"
+            alt="Birthday Celebration"
+          />
+          <div class="text-overlay">
+            <h4 class="invitation-text">
+              Սրտանց հրավիրում ենք Ձեզ մեր ուրախությունը մեզ հետ կիսելու, մեր
+              Ադրիանան դառնում է 7 տարեկան։
+            </h4>
+            <div class="event-details">
+              <div class="date-time">
+                <h2 class="date">30 Հոկտեմբեր 2025</h2>
+                <h2 class="time">16:30</h2>
+              </div>
+              <h2 class="venue">«Good Time» սրճարանում</h2>
+              <div class="location">
+                <img
+                  src="./public/location.png"
+                  alt="Location"
+                  class="location-icon"
+                />
+                <h2 class="address">Հալաբյան 34</h2>
+              </div>
+            </div>
+            <!-- Music Toggle Button -->
+            <div class="music-toggle" id="musicToggle"></div>
+            <!-- Countdown Timer -->
+            <div class="countdown-timer">
+              <div class="timer-title">Մինչև տոնը մնաց</div>
+              <div class="timer-container">
+                <div class="timer-unit">
+                  <div class="timer-value" id="days">00</div>
+                  <div class="timer-label">Օր</div>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-unit">
+                  <div class="timer-value" id="hours">00</div>
+                  <div class="timer-label">Ժամ</div>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-unit">
+                  <div class="timer-value" id="minutes">00</div>
+                  <div class="timer-label">Րոպե</div>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-unit">
+                  <div class="timer-value" id="seconds">00</div>
+                  <div class="timer-label">Վարկյան</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
