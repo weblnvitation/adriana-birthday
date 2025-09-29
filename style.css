@@ -89,6 +89,19 @@
   }
 }
 
+/* New subtle scale animation for mobile */
+@keyframes subtleScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* ===== DESKTOP STYLES ===== */
 body {
   background-color: #f5f3f3;
@@ -396,11 +409,13 @@ body {
     animation: slideUpFade 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 
-  /* Keep seven-image animation */
+  /* Keep seven-image animation with subtle scale effect */
   .seven-image {
     width: 130px;
-    animation: popIn 1s ease-out forwards;
-    animation-delay: 1s;
+    animation: 
+      popIn 1s ease-out forwards,
+      subtleScale 3s ease-in-out 2s infinite;
+    animation-delay: 1s, 2s;
     opacity: 0;
     transform: scale(0.5) rotate(-10deg);
   }
@@ -506,6 +521,14 @@ body {
 
   .invitation-text {
     font-size: 1.2rem;
+  }
+
+  /* Enhanced subtle scale for smaller screens */
+  .seven-image {
+    width: 110px;
+    animation: 
+      popIn 1s ease-out forwards,
+      subtleScale 2.5s ease-in-out 2s infinite;
   }
 
   .timer-container {
